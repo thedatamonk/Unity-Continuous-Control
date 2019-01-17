@@ -46,6 +46,20 @@ For this project, 2 environments are provided:
 2. Pytorch
 3. Unity ML-Agents
 
+## Solution
+I employed [this](https://github.com/udacity/deep-reinforcement-learning/tree/master/ddpg-bipedal) DDPG implementation provided by Udacity. Since, the enviroment contains 20 agents working in parallel, I had to make some amendments to this implementation. 
+1. As suggested in the **Benchmark implementation (Attempt #4)**, the agents learnt from the experience tuples every **20** timesteps and at very update step, the agents learnt **10** times. 
+2. Also, gradient clipping as suggested in **Attempt #3** helped improved the training.
+```
+self.critic_optimizer.zero_grad()
+critic_loss.backward()
+torch.nn.utils.clip_grad_norm(self.critic_local.parameters(), 1)
+self.critic_optimizer.step()
+```
+3. Also, to add a bit of exploration while choosing actions, as suggested in the [DDPG](https://arxiv.org/abs/1509.02971) paper, **Ornstein-Uhlenbeck process** was used to add noise to the chosen actions. 
+4. Also, performed manual search for the best values of training and model parameters.
+
+
 ## Running the code
 1. After installing all dependcies, clone this repository in your local system.
 2. Make sure you have **Jupyter** installed. To install Jupyter:
@@ -59,8 +73,10 @@ python3 -m pip install jupyter
    - `model.py` : code for **Actor** and **Critic** networks
    - `workspace_utils.py` : code to keep the Udacity workspace awake during training
    
-## Solution
-To be updated
 
 ## Results
-To be updated
+
+![DDPG score](https://github.com/thedatamonk/Unity-Continuous-Control/blob/master/plots/score_ddpg.png)
+![DDPG score over 100 episodes](https://github.com/thedatamonk/Unity-Continuous-Control/blob/master/plots/score100_ddpg.png)
+
+The implementation was able to solve the environment in approximately **360** episodes.
