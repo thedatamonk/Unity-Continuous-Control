@@ -1,6 +1,6 @@
 # Udacity Deep Reinforcement learning Nanodegree
 ## Problem statement
-**Project Navigation**: In this project, we have to train an agent (a double-jointed arm) to keep track of a moving target. The environment is [Reacher](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#reacher) environment provided by [Unity Machine learning Agents](https://github.com/Unity-Technologies/ml-agents).
+**Project Continuous Control**: In this project, we have to train an agent (a double-jointed arm) to keep track of a moving target. The environment is [Reacher](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#reacher) environment provided by [Unity Machine learning Agents](https://github.com/Unity-Technologies/ml-agents).
 
 ![Unity Reacher environment](https://s3.amazonaws.com/video.udacity-data.com/topher/2018/June/5b1ea778_reacher/reacher.gif)
 
